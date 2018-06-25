@@ -2740,7 +2740,7 @@ SELECT
 		nota_2 'Nota 2',
 		nota_3 'Nota 3',
 		nota_4 'Nota 4',
-		(nota_1 + nota_2 + nota_3 + nota_4) / 4 AS media
+		((nota_1 + nota_2 + nota_3 + nota_4) / 4) AS media
 
 		FROM alunos
 
@@ -2748,6 +2748,82 @@ SELECT
 		ORDER BY nome ASC;
 
 		-- Contabilize a quantidade de alunos com o signo de Peixes
+
+		SELECT COUNT 'Quantidade' FROM alunos WHERE signo LIKE 'Peixes';
+
+		-- Selecione a soma da nota 1
+
+		SELECT SUM(nota_1) AS 'Soma das notas' 
+		FROM alunos;
+        SELECT nome, SUM(nota_1) AS 'Soma da nota 1' 
+		FROM alunos GROUP BY nome;
+
+		-- Selecione a média da nota 2
+
+		SELECT AVG(nota_2) AS 'Média das notas 2' 
+		FROM alunos;
+        SELECT nome, SUM(nota_1) AS 'Média da nota 2' 
+		FROM alunos GROUP BY nome;
+
+		-- Selecione o nome, menor nota 1.
+
+		SELECT nome, nota_1 FROM alunos WHERE nota_1 = (SELECT MIN(nota_1) FROM alunos);
+
+		-- Selecione o nome, nota 1, nota 2, nota 3, nota 4 com o maior nome.
+
+		SELECT TOP 1 nome, nota_1, nota_2, nota_3, nota_4 FROM alunos ORDER BY LEN(nome) DESC;
+
+		-- Selecione a cor e quantidade com a cor Gelo.
+
+		SELECT cor_preferida, COUNT (cor_preferida) 'Cor' 
+		FROM alunos WHERE cor_preferida = 'Gelo' GROUP BY cor_preferida;
+
+		-- Selecione a quantidade de alunos que o nome contém Francisco no começo.
+
+		SELECT nome, COUNT(*)'Alunos chamados Francisco' 
+		FROM alunos WHERE nome LIKE 'Francisco%';
+
+		-- Selecione a quantidade de alunos que o nome contém Luc.
+
+		SELECT COUNT(*)'Alunos com "Luc" no nome' 
+		FROM alunos WHERE nome LIKE '%Luc%';
+
+		-- Selecione o nome, signo e data de nascimento quando o signo Áries
+
+		SELECT nome, signo, data_nascimento FROM alunos WHERE signo = 'Áries';
+
+		-- Selecione o nome, nota 1, nota 2, nota 3, nota 4 com o maior média.
+
+		SELECT nome,nota_1,nota_2,nota_3,nota_4,((nota_1 + nota_2 + nota_3 + nota_4) / 4) AS 'Média' 
+		WHERE ((nota_1 + nota_2 + nota_3 + nota_4) / 4) = (SELECT MAX((nota_1 + nota_2 + nota_3 + nota_4)/4)
+		FROM alunos);
+
+
+		--Selecione o nome, média e caso a média for menor que 5 apresentar reprovado, caso for menor que 7
+        --apresentar em exame senão apresentar aprovado.
+        --Dica: buscar como fazer IF em sql.
+
+		SELECT nome, ((nota_1+nota_2+nota_3+nota_4) / 4) AS 'Média', 
+		IIF(((nota_1+nota_2+nota_3+nota_4)/4) < 5, 'Reprovado', 'Aprovado') FROM alunos;
+
+		-- Selecione o nome, nota 1, nota 2, nota 3, nota 4 com o menor média.
+
+		SELECT nome,nota_1,nota_2,nota_3,nota_4,((nota_1 + nota_2 + nota_3 + nota_4) / 4) AS 'Média' 
+		WHERE ((nota_1 + nota_2 + nota_3 + nota_4) / 4) = (SELECT MIN((nota_1 + nota_2 + nota_3 + nota_4) / 4)
+		FROM alunos);
+
+		-- Selecione a quantidade de alunos em que a média foi maior que 7
+
+		SELECT COUNT 'Quantidade' FROM alunos WHERE media > 7
+
+		-- Selecione o nome, nick do aluno que o nick contém 5 caracteres.
+
+		SELECT nome, LEN(nome) AS 'Nick com 5 caracteres'
+        FROM alunos
+        WHERE LEN(nick) <= 5 ORDER BY nick;
+
+		-- 
+
 
 		
 
