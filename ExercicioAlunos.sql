@@ -2822,18 +2822,7 @@ SELECT
         FROM alunos
         WHERE LEN(nick) <= 5 ORDER BY nick;
 
-<<<<<<< HEAD
-		
 
-		
-
-
-
-	
-=======
-		-- 
-
->>>>>>> ebc908cc1fa85e5e3463cdc30c43019a2c60bfc4
 
 		
 
