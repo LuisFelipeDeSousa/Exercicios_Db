@@ -2740,7 +2740,7 @@ SELECT
 		nota_2 'Nota 2',
 		nota_3 'Nota 3',
 		nota_4 'Nota 4',
-		(nota_1 + nota_2 + nota_3 + nota_4) / 4 AS media
+		((nota_1 + nota_2 + nota_3 + nota_4) / 4) AS media
 
 		FROM alunos
 
@@ -2822,6 +2822,7 @@ SELECT
         FROM alunos
         WHERE LEN(nick) <= 5 ORDER BY nick;
 
+<<<<<<< HEAD
 		
 
 		
@@ -2829,6 +2830,10 @@ SELECT
 
 
 	
+=======
+		-- 
+
+>>>>>>> ebc908cc1fa85e5e3463cdc30c43019a2c60bfc4
 
 		
 
