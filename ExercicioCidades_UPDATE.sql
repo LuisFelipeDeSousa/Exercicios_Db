@@ -1,34 +1,26 @@
-﻿-- EXERCICIO DE UPDATE (Pokemons)
+﻿-- Exercicio UPDATE de Cidades --
 
-UPDATE pokemons SET categoria = 'Seed' WHERE codigo >50 AND codigo <100
+UPDATE cidades SET estado = 'SS' WHERE estado = 'SC'
 
-UPDATE pokemons SET ataque = 29 WHERE nome LIKE '%inj%'
+UPDATE cidades SET cidade = 'Brumenau' WHERE cidade = 'Blumenau' AND estado = 'SC'
 
-UPDATE pokemons SET velocidade = 2 WHERE velocidade = 5
+UPDATE cidades SET cidade = 'Batata' WHERE cidade  LIKE'Bata%'
 
-UPDATE pokemons SET categoria = 'Manipulate' WHERE codigo > 100
+UPDATE cidades SET cidade = 'Lindo' WHERE cidade LIKE '%Belo%'
 
-UPDATE pokemons SET nome = 'C' WHERE nome LIKE 'R%'
+UPDATE cidades SET estado = 'SC' WHERE cidade LIKE 'Indaia%'
 
-UPDATE pokemons SET altura = 0.50 WHERE altura = 0.51
+UPDATE cidades SET estado = 'SC' WHERE cidade = 'Timbó'
 
-UPDATE pokemons SET peso = 0.70 WHERE altura = 0.50
+UPDATE cidades SET cidade ='josué' WHERE cidade LIKE '%José%'
 
-UPDATE pokemons SET codigo = 1, defesa = 1, ataque = 1, especial_ataque = 3, especial_defesa = 3 WHERE espcial_defesa = 3 AND especial_ataque = 4
+UPDATE cidades SET estado = 'PS' WHERE estado = 'SP'
 
-UPDATE pokemons SET nome = 'obter somente os dez caracteres do nome' WHERE LEN(nome) > 10
+UPDATE cidades SET cidade = 'qualquer texto' WHERE LEN(nome) >= 10
 
-UPDATE pokemons SET categoria = water WHERE descricao = 'flames'
+UPDATE cidades SET cidade = 'it' WHERE cidade LIKE 'It%'
 
-UPDATE pokemons SET codigo = 155 WHERE codigo = 151
+UPDATE cidades SET estado = 'TO' WHERE cidade LIKE '%ã'
 
-UPDATE pokemons SET nome = 'Naruto', ataque = 1 WHERE nome = 'Kabuto'
-
-UPDATE pokemons SET nome = 'Sasuke', especial_ataque = 8002, ataque = 8001 WHERE nome = 'Mew' OR nome = 'Mewtwo'
-
-UPDATE pokemons SET descricao = Loremimpsum, nome = Tyranitar, categoria = WoodGecko WHERE codigo %2 = 0
-
-       
-SELECT * FROM pokemons
-
+SELECT * FROM cidades;
 
